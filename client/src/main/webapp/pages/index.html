@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>     
+        <input data-bind="textInput: inputText" />
+        <button data-bind="enable: addEnabled, click: addTodo">add</button><br>
+        <select style="width: 100%" size=10 data-bind="foreach: todos, selectedOptions: selected">
+            <option data-bind="value: $data, text:$data"></option>
+        </select>
+        <button data-bind="enable: deleteEnabled, click: deleteTodo">delete</button>
+        <!-- boot bck2brwsr -->
+        <script type="text/javascript" src="bck2brwsr.js"></script>
+        <script>
+            var vm = bck2brwsr('testdrivendevelopment.js');
+            var c = vm.loadClass('de.eppleton.testdrivendevelopment.BrowserMain');
+            c.invoke('main');
+        </script>
+    </body>
+</html>
